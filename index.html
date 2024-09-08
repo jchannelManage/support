@@ -3,69 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JChannelサポート</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #00f2ff;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        h1 {
-            margin-top: 0;
-        }
-        section {
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #00f2ff;
-            color: #fff;
-            margin-top: 20px;
-        }
-    </style>
+    <title>サポートページ - JChannel</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+<style>
+/* リセットスタイル */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 基本設定 */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    padding-bottom: 3rem; /* フッターのために余白を追加 */
+}
+
+header {
+    background: #000000;
+    color: #fff;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 0.5rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a.active, nav ul li a:hover {
+    background: #fff;
+    color: #2575fc;
+}
+
+main {
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* アプリ概要 */
+.intro {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.intro h2 {
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 1.8rem;
+}
+
+/* アイテムセクション */
+.items {
+    margin-bottom: 1.5rem;
+}
+
+.item-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.item-card h3 {
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-size: 1.6rem;
+}
+
+/* アイテム入手方法 */
+.acquisition {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.acquisition-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.info-card {
+    background: #f0f0f0;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 48%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.info-card h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1.4rem;
+}
+
+.acquisition p {
+    margin-top: 1rem;
+    color: #555;
+}
+
+/* お問い合わせ */
+section {
+    margin-bottom: 1.5rem;
+}
+
+.twitter-link {
+    display: inline-block;
+    background: #1da1f2;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.twitter-link:hover {
+    background: #0d95e8;
+}
+
+/* フォーム */
+form {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+    background: #1d4d9e;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+</style>
 <body>
     <header>
-        <h1>JChannelサポート</h1>
+        <h1>JChannelサポートページ</h1>
     </header>
+    <main>
+        <section class="intro">
+            <h2>アプリ概要</h2>
+            <p>JChannelでは、ユーザーがスレッドを作成しテーマをもとに投稿を行ったり、つぶやき広場でテーマを決めずに気楽につぶやけることができます。</p>
+            <p>他のユーザーの投稿を閲覧し、スレッドをお気に入りに登録することも可能です。</p>
+        </section>
+        <section class="items">
+            <h2>アイテムについて</h2>
+            <div class="item-card">
+                <h3>Uコイン</h3>
+                <p>Uコインはスレッドを作成したり、投稿を行ったりするために使用します。スレッドや投稿ごとに一定量のUコインが消費されます。</p>
+            </div>
+            <div class="item-card">
+                <h3>Uチケット</h3>
+                <p>Uチケットは、お気に入り登録できるスレッド数を拡張するために使用します。特定のスレッドをお気に入りに追加したい場合、Uチケットを使用して登録数を増やすことができます。</p>
+            </div>
+        </section>
+        <section class="acquisition">
+            <h2>UコインとUチケットの入手方法</h2>
+            <div class="acquisition-info">
+                <div class="info-card">
+                    <h3>Uコイン</h3>
+                    <p>Uコインは毎朝6時から18時までの間にデイリーボーナスで広告を視聴することによって入手できます。また、投稿時にUコインが足りない場合も広告を視聴することによって入手できます。</p>
+                </div>
+                <div class="info-card">
+                    <h3>Uチケット</h3>
+                    <p>Uチケットは18時から翌朝6時までの間にデイリーボーナスや広告の視聴によって入手できます。</p>
+                </div>
+            </div>
+            <p>毎日ログインしてボーナスを獲得し、必要なアイテムを集めましょう。</p>
+        </section>
+        <section>
+			<h2>お問い合わせ</h2>
+            <p>ご質問やご不明点がある場合は、以下のXアカウントまでご連絡ください。</p>
+            <a href="https://x.com/JChannel2525" class="twitter-link" target="_blank" rel="noopener noreferrer">JChannel管理人 X</a>
 
-    <section>
-        <h2>アプリ概要</h2>
-        <p>JChannelでは、ユーザーがスレッドを作成しテーマをもとに投稿を行ったり、つぶやき広場でテーマを決めずに気楽につぶやけることができます。</p>
-        <p>他のユーザーの投稿を閲覧し、スレッドをお気に入りに登録することも可能です。</p>
-    </section>
-
-    <section>
-        <h2>アイテムについて</h2>
-        <h3>Uコイン</h3>
-        <p>Uコインはスレッドを作成したり、投稿を行ったりするために使用します。スレッドや投稿ごとに一定量のUコインが消費されます。</p>
-
-        <h3>Uチケット</h3>
-        <p>Uチケットは、お気に入り登録できるスレッド数を拡張するために使用します。特定のスレッドをお気に入りに追加したい場合、Uチケットを使用して登録数を増やすことができます。</p>
-    </section>
-
-    <section>
-        <h2>UコインとUチケットの入手方法</h2>
-        <p>Uコインは毎朝6時から18時までの間にデイリーボーナスで広告を視聴することによって入手できます。また、投稿時にUコインが足りない場合も広告を視聴することによって入手できます。</p>
-        <p>Uチケットは18時から翌朝6時までの間にデイリーボーナスや広告の視聴によって入手できます。</p>
-        <p>毎日ログインしてボーナスを獲得し、必要なアイテムを集めましょう。</p>
-    </section>
-
+        </section>
+    </main>
     <footer>
-        <p>© 2024 JChannel</p>
+        <p>&copy; 2024 JChannel. All rights reserved.</p>
     </footer>
 </body>
 </html>
