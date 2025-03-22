@@ -1095,61 +1095,6 @@
     const modalClose = document.querySelector('.modal-close');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
-    
-    let currentImageIndex = 0;
-    const images = Array.from(screenshotItems).map(item => item.getAttribute('data-img'));
-    
-    // スクリーンショットをクリックしたときにモーダルを表示
-    screenshotItems.forEach((item, index) => {
-      item.addEventListener('click', () => {
-        currentImageIndex = index;
-        modalImage.src = images[currentImageIndex];
-        modal.classList.add('show');
-        document.body.style.overflow = 'hidden'; // スクロールを無効化
-      });
-    });
-    
-    // モーダルを閉じる
-    modalClose.addEventListener('click', () => {
-      modal.classList.remove('show');
-      document.body.style.overflow = 'auto'; // スクロールを有効化
-    });
-    
-    // 背景をクリックしてもモーダルを閉じる
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('show');
-        document.body.style.overflow = 'auto';
-      }
-    });
-    
-    // 前の画像を表示
-    prevBtn.addEventListener('click', () => {
-      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-      modalImage.src = images[currentImageIndex];
-    });
-    
-    // 次の画像を表示
-    nextBtn.addEventListener('click', () => {
-      currentImageIndex = (currentImageIndex + 1) % images.length;
-      modalImage.src = images[currentImageIndex];
-    });
-    
-    // キーボードでのナビゲーション
-    document.addEventListener('keydown', (e) => {
-      if (!modal.classList.contains('show')) return;
-      
-      if (e.key === 'Escape') {
-        modal.classList.remove('show');
-        document.body.style.overflow = 'auto';
-      } else if (e.key === 'ArrowLeft') {
-        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-        modalImage.src = images[currentImageIndex];
-      } else if (e.key === 'ArrowRight') {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        modalImage.src = images[currentImageIndex];
-      }
-    });
   </script>
 </body>
 </html>
